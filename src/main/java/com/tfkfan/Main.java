@@ -17,7 +17,7 @@ public class Main {
         System.out.println();
         System.out.println("..................................................");
 
-        String messageToEncrypt = "This is a message to encryptЫЫЫ";
+        String messageToEncrypt = "This is a message to encrypt";
         RsaEncryptor encryptor = new RsaEncryptor();
         String encrypted = encryptor.encrypt(messageToEncrypt);
         System.out.println("Rsa encryption....");
