@@ -10,11 +10,10 @@ public class Main {
         String signature = s.signature();
 
         System.out.println("Digital Signature....");
-        System.out.printf("Message: \"%s\", signature: \"%s\", verified: \"%s\", wrong signature: \"%s\"",
+        System.out.printf("Message: \"%s\", signature: \"%s\", verified: \"%s\", wrong signature: \"%s\"%n",
                 messageToSign, signature,
                 s.verify(signature),
                 s.verify(s2.signature()));
-        System.out.println();
         System.out.println("..................................................");
 
         String messageToEncrypt = "This is a message to encrypt";
@@ -24,7 +23,6 @@ public class Main {
         System.out.printf("Message: \"%s\", encrypted: \"%s\", decrypted: \"%s\"%n", messageToEncrypt,
                 encrypted,
                 encryptor.decrypt(encrypted));
-        System.out.println();
         System.out.println("..................................................");
     }
 }
