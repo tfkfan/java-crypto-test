@@ -14,6 +14,7 @@ public class Main {
                 messageToSign, signature,
                 s.verify(signature),
                 s.verify(s2.signature()));
+        System.out.println();
         System.out.println("..................................................");
 
         String messageToEncrypt = "This is a message to encryptЫЫЫ";
@@ -23,6 +24,7 @@ public class Main {
         System.out.printf("Message: \"%s\", encrypted: \"%s\", decrypted: \"%s\"%n", messageToEncrypt,
                 encrypted,
                 encryptor.decrypt(encrypted));
+        System.out.println();
         System.out.println("..................................................");
     }
 }
