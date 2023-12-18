@@ -44,7 +44,8 @@ public class SignatureProcessor {
     public boolean verify(String signature) {
         try {
             cipher.init(Cipher.DECRYPT_MODE, keyPair.getPrivate());
-            return Arrays.equals(md.digest(dataToSign.getBytes(StandardCharsets.UTF_8)), cipher.doFinal(decoder.decode(signature)));
+            return Arrays.equals(md.digest(dataToSign.getBytes(StandardCharsets.UTF_8)),
+                    cipher.doFinal(decoder.decode(signature)));
         } catch (Exception e) {
             return false;
         }

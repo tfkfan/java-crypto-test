@@ -11,6 +11,8 @@ public class RsaEncryptor {
     private final static String DEFAULT_ALG = "RSA";
     private final KeyPair keyPair;
     private final Cipher cipher;
+    private final Base64.Decoder decoder = Base64.getDecoder();
+    private final Base64.Encoder encoder = Base64.getEncoder();
 
     public RsaEncryptor() throws NoSuchAlgorithmException, NoSuchPaddingException {
         this(DEFAULT_ALG);
@@ -29,12 +31,12 @@ public class RsaEncryptor {
 
     public String encrypt(String data) throws InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
         cipher.init(Cipher.ENCRYPT_MODE, getPublicKey());
-        return Base64.getEncoder().encodeToString(cipher.doFinal(data.getBytes()));
+        return encoder.encodeToString(cipher.doFinal(data.getBytes()));
 
     }
 
     public String decrypt(String data) throws InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
         cipher.init(Cipher.DECRYPT_MODE, keyPair.getPrivate());
-        return new String(cipher.doFinal(Base64.getDecoder().decode(data)));
+        return new String(cipher.doFinal(decoder.decode(data)));
     }
 }
